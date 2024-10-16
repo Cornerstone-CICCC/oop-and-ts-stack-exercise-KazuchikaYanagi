@@ -9,13 +9,14 @@ function lowercaseStrings(stack) {
   const tempStack = new Stack();
 
   while (!stack.isEmpty()) {
-    for (let i = 0; i <= stack.size(); i++) {
-      let tempWord = stack.pop();
-      tempStack.push(tempWord.toLowerCase());
-    }
+    const topElement = stack.pop();
+    tempStack.push(topElement.toLowerCase());
+    console.log(tempStack);
   }
 
-  return (stack.items = tempStack.items.reverse());
+  while (!tempStack.isEmpty()) {
+    stack.push(tempStack.pop());
+  }
 }
 
 // Create stack
